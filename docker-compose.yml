@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  openvpn:
+    build:
+      context: .
+      dockerfile: Dockerfile.arm7
+    cap_add:
+     - NET_ADMIN
+    container_name: openvpn
+    platform: linux/arm/v7
+    ports:
+     - 1194:1194/udp
+    restart: unless-stopped
